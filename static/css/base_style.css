@@ -1,0 +1,58 @@
+
+body, html {
+    height: 100%;
+}
+
+.wrapper {
+    position: relative;
+    min-height: 100%;
+}
+
+.wrapper-content {
+    overflow: auto;
+    padding-bottom: 180px;
+}
+
+.navbar-top{
+    height: 30px;
+    background-color: green;
+}
+
+.navbar-main {
+    height: 50px;
+    background-color: #cd9557;
+    margin-bottom: 50px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: white;
+    padding-left: 10%;
+}
+
+.footer {
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: white;
+}
+
+.basket-container{
+    text-align: right;
+    position: relative;
+    width: 400px;
+    padding: 15px 10px;
+}
+
+.basket-items{
+    text-align: left;
+    position: absolute;
+    top: 65px;
+    background-color: #ff6c06;
+    width: 100%;
+    z-index: 10;
+}
+
+.hidden{
+    visibility: hidden;
+}

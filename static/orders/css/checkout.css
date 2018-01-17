@@ -1,0 +1,14 @@
+
+#div_with_a_button{
+    position: relative;
+}
+
+#div_with_a_button div{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.form-error{
+    color: red;
+}

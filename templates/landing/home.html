@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'landing/css/home_style.css' %}">
+{% endblock link %}
+
+{% block content %}
+    <div class="section-top">
+        <img src="{% static 'img/welcome.png' %}" class="img-fluid">
+    </div>
+    <div class="section section1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="text-center">
+                        Новые поступления
+                    </h1>
+                </div>
+                {% for product_image in products_images %}
+                    {% include 'landing/product_item.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="section section-delivery">
+        <div>
+            <h3>Текст в разработке!))</h3>
+        </div>
+    </div>
+    <div class="section section2 iphones-cotainer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="text-center">
+                        iPhones
+                    </h1>
+                </div>
+                {% for product_image in products_images_iPhones %}
+                    {% include 'landing/product_item.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="section section3 macbooks-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="text-center">
+                        MacBooks
+                    </h1>
+                </div>
+                {% for product_image in products_images_MacBooks %}
+                    {% include 'landing/product_item.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="section section4 ipads-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="text-center">
+                        iPads
+                    </h1>
+                </div>
+                {% for product_image in products_images_iPad %}
+                    {% include 'landing/product_item.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

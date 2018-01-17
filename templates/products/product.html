@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'landing/css/home_style.css' %}">
+    <link rel="stylesheet" href="{% static 'products/css/product.css' %}">
+{% endblock link %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row row-main-product">
+            <div class="col-lg-6 text-center">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="product-image" src="{{ image0.url }}" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="product-image" src="{{ image1.url }}" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="product-image" src="{{ image2.url }}" alt="Third slide">
+                         </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h1 class="text-center">{{ product.name }}</h1>
+                <p>Price: {{ product.price }}</p>
+                <div>
+                    <nav>
+                      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-description-tab" data-toggle="tab"
+                           href="#nav-description" role="tab" aria-controls="nav-description"
+                           aria-selected="true">
+                            Описание
+                        </a>
+                        <a class="nav-item nav-link" id="nav-delivery-tab" data-toggle="tab"
+                           href="#nav-delivery" role="tab" aria-controls="nav-delivery" aria-selected="false">
+                            Доставка
+                        </a>
+                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
+                           href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">
+                            Contact
+                        </a>
+                      </div>
+                    </nav>
+                    <div class="tab-content product-description-tabs" id="nav-tabContent">
+                      <div class="tab-pane fade show active" id="nav-description" role="tabpanel"
+                           aria-labelledby="nav-description-tab">
+                          {{ product.description }}
+                      </div>
+                      <div class="tab-pane fade" id="nav-delivery" role="tabpanel"
+                           aria-labelledby="nav-delivery-tab">
+                          123
+                      </div>
+                      <div class="tab-pane fade" id="nav-contact" role="tabpanel"
+                           aria-labelledby="nav-contact-tab">
+                          456
+                      </div>
+                    </div>
+                </div>
+                <div>
+                    <form class="form-inline" id="form-buying_product" action="{% url 'basket_adding' %}">{% csrf_token %}
+                        <div class="form-row">
+                            <div class="col mb-2">
+                                <input type="number" class="form-control" name="number" id="number">
+                            </div>
+                            <div class="col mb-2">
+                                <button type="submit" class="btn btn-success btn-buy" id="submit_btn"
+                                    data-product_id="{{ product.id }}" data-product_name="{{ product.name }}"
+                                    data-product_price="{{ product.price }}">
+                                    Купить
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="row row-related-products">
+            <div class="col-lg-12">
+                <h1 class="text-center">
+                    Похожие товары
+                </h1>
+            </div>
+            {% for product_image in products_images_this_category %}
+                {% include 'landing/product_item.html' %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+
+.product-description-tabs{
+    margin: 3%;
+}
+
+.row-main-product{
+    height: 600px;
+}
+
+.row-related-products{
+    padding: 10%;
+}
+
+.product-image{
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.carousel{
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-inner{
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-item{
+    height: 100%;
+    width: 100%;
+    background-color: white;
+}
