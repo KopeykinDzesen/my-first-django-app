@@ -51,8 +51,34 @@ body, html {
     background-color: #ff6c06;
     width: 100%;
     z-index: 10;
+    padding: 5px;
 }
 
 .hidden{
     visibility: hidden;
+}
+
+.product-in-basket-item{
+    min-height: 40px;
+    position: relative;
+}
+
+.btn-delete-product-in-basket{
+    position: absolute;
+    right: 5px;
+    padding: 0;
+    color: white;
+}
+
+.btn-delete-product-in-basket:hover{
+    color: #b5b5b5;
+    text-decoration: none;
+}
+
+#basket_link:hover{
+    cursor: default;
+}
+
+.row-basket-item{
+    width: 100%;
 }

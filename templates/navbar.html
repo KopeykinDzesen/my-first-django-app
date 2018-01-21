@@ -21,24 +21,37 @@
         <ul class="nav navbar-nav navbar-right">
             <li class="nav-item">
                 <div class="basket-container">
-                    <a class="nav-link" href="{% url 'checkout' %}">
+                    <a class="nav-link" id="basket_link">
                         Корзина <span id="basket_total_number">
                         {% if products_total_number %}
-                            {{ products_total_number }}
+                            ({{ products_total_number }})
                         {% else %}
                             (0)
                         {% endif %}
                     </span></a>
                     <div class="basket-items hidden">
-                        <ul>
-                            {% for product_in_basket in products_in_basket %}
-                            <li>{{ product_in_basket.product.name }} * {{ product_in_basket.number }}
-                                = {{ product_in_basket.total_price }}
-                            </li>
-                            {% endfor %}
-                        </ul>
+                        <form class="form-inline" id="form_delete_product"
+                              action="{% url 'delete_product_in_basket' %}">{% csrf_token %}
+                                {% for product_in_basket in products_in_basket %}
+                                <div class="form-row row-basket-item" id="basket_item_{{ product_in_basket.product.id }}">
+                                    <div class="col-xl-10">
+                                        {{ product_in_basket.product.name }} * {{ product_in_basket.number }}
+                                        = {{ product_in_basket.total_price }}
+                                    </div>
+                                    <div class="col-xl-2">
+                                        <button class="btn btn-link btn-delete-product-in-basket"
+                                                type="button" data-product_id="{{ product_in_basket.product.id }}">
+                                                убрать</button>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                        </form>
                     </div>
                 </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'checkout' %}" style="
+                padding-top: 25px;">Заказать<span class="sr-only">(current)</span></a>
             </li>
         </ul>
     </div>
