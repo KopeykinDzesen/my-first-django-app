@@ -57,13 +57,12 @@
                                 <div class="col-lg-4 offset-1">
                                     <div class="form-group">
                                         <label>Имя</label>
-                                        <span class="form-error">{{ form.name.errors }}</span>
+                                        <span class="form-error">{{ form.errors }}</span>
                                         <input type="text" name="{{ form.name.html_name }}" class="form-control"
                                          value="{{ request.POST.name }}">
                                     </div>
                                     <div class="form-group">
                                         <label>Телефон</label>
-                                        <span class="form-error">{{ form.phone.errors }}</span>
                                         <input type="text" name="{{ form.phone.html_name }}" class="form-control"
                                          value="{{ request.POST.phone }}">
                                     </div>
